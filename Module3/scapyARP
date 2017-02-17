@@ -1,0 +1,13 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jan 26 18:21:30 2017
+
+@author: root
+"""
+
+from scapy.all import *
+
+pkt = Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst='192.168.0.4', hwdst="ff:ff:ff:ff:ff:ff")
+
+srp1(pkt)
