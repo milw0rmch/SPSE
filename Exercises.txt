@@ -1,0 +1,110 @@
+==========================================
+
+		Module 2
+
+==========================================
+
+2.4 Based on the knowledge you have gained in the network 
+programming module, create a multi-threaded port scanner in
+python which uses SYN Scanning
+
+- take user input of the range of ports the user wants to scan
+- divide that range into 10 equal parts
+- create 10 threads that use scapy to do the scanning
+
+Solution video 5194.
+Custom solution done
+
+2.5 FTP sites, Create a WorkerThread and Queue
+which can log on to these sites and lsit root directory
+and exit,use 5 threads for this job and 10 FTP sites
+
+custom solution done
+
+There is a locking mechanism available in the Thread class
+which you can use to lock resources for dedicated use, Create
+a sample code to illustrate this concept
+
+Explore multiprocessing module in Python, How does it
+leverage multi-core setup. Program the TCP SYN scanner using
+multiprocessing.
+
+2.6 Create a TCP server listening on a port, implement signals
+to ensure it shuts down automatically after a pre-configured
+duration
+
+e.g $tcp-server -s 100
+
+==========================================
+
+		Module 3
+
+==========================================
+
+3.1 - Create a Multi-Threaded Echo Server
+    - Create a Multi-Process Echo Server
+    - Create a Non-Blocking Multiplexed Echo Server using Select()
+https://bitbucket.org/dhellmann/pymotw/src/0614d7ac95ba2b87730e5d50a6e8b5079ced48e0/PyMOTW/select/select_echo_server.py?at=master&fileviewer=file-view-default
+https://pymotw.com/2/select/
+
+3.2 - Create a multi-threaded version of the SocketServer
+
+3.3 - Search for module to run CGI, and code an implementation
+      for CGI
+https://docs.python.org/2/library/cgihttpserver.html
+
+3.4 - Create a Packet Sniffer using Raw Sockets which can parse
+      TCP packets
+	-> should be able to parse individuals fields
+    - Create a sniffer which uses a filter only to print details
+      of an HTTP packet (TCP, Port 80)
+	-> Also dump the data
+
+3.5 - Send ARP Request packet using Raw Sockets
+	-> verify the same with tcpdump or wireshark
+
+3.6 - Create a packet sniffer with scapy for HTTP
+      protocol and print out the HTTP headers and
+      Data in GET/POST
+    - Create WiFi sniffer and print out the unique SSIDs
+      of the Wi-Fi networks in your vicinity
+
+==========================================
+
+		Module 4
+
+==========================================
+
+4.1 - If you try and download a very large file, then 
+how do you monitor the progress?
+
+Research on urllib.urlretrieve() to solve this problem
+
+Urlencode() does a bad job in handling special 
+characters in the URL 
+ 
+Research on .quote() and .quote_plus() and 
+illustrate how they can help 
+
+4.2 - Read the documentation of BeautifulSoup 4 
+and find other ways to iterate through tags 
+and get to the juicy information
+
+4.3 - In the example shown we did not try and 
+modify the hidden fields. Try to see how you 
+can do it and send arbitrary data 
+
+        - Install a vulnerable web application such as 
+	DVWA, OWASP Web Goat or other 
+ 
+	Use mechanize to try SQL Injection on form 
+	fields and deduce which fields are vulnerable
+	to SQL Injection 
+
+4.4 - Explore the concept of  mechanize.CookieJar 
+      Why is it useful? 
+      Sample code to illustrate its functionality
+
+    - Explore http://seleniumhq.org/support/  
+      Can you automate the current example in it? 
+
